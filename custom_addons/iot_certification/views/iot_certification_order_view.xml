@@ -1183,4 +1183,9 @@
             </form>
         </field>
     </record>
+
+    <record id="action_sign_js" model="ir.actions.client">
+        <field name="name">Підпис документів</field>
+        <field name="tag">iot_certification.action_sign_js</field>
+    </record>
 </odoo>

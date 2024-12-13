@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="iot_certification.OwlSign" owl="1">
+        <div class="col-lg-2 row m-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Назва файлу" t-ref="search-input"
+                       t-on-keyup="searchAttachments"/>
+                <button class="btn btn-outline-primary" t-on-click="searchAttachments">Пошук</button>
+            </div>
+        </div>
+
+        <div class="row m-2">
+            <div class="col">
+                <table class="table table-striped table-hover border">
+                  <thead>
+                    <tr>
+                      <th scope="col">Назва файлу</th>
+                        <th scope="col"> </th>
+                    </tr>
+                  </thead>
+                    <tbody>
+                    <tr t-foreach="state.attachmentList" t-as="attachment" t-key="attachment.id">
+                      <td>
+                          <div class="form-check">
+                              <label class="form-check-label">
+                                <span t-esc="attachment.name"/>
+                              </label>
+                            </div>
+                      </td>
+                        <td>
+                          <t t-if="state.key_read">
+                              <button type="button" class="btn btn-success" t-on-click="()=>this.onSign(attachment)">
+                                      Підписати
+                                  </button>
+                          </t>
+                            <t t-else="">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#signModal">
+                                      Підписати
+                                  </button>
+                          </t>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="signModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Спочатку введіть ключ</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                <div class="modal-body">
+                    <div t-attf-style="width:700px;height:1000px;{{ (state.sign_widget_parent) ? '' : 'display: none;' }}"
+                         id="sign-widget-parent">
+                    </div>
+                    <div t-attf-style="{{ (state.qr_code_block) ? '' : 'display: none;' }}"
+                         id="qr-code-block">
+                    </div>
+                    <div t-attf-style="{{ (state.qr_code_block) ? 'display: none;' : '' }}">
+                      <span>Ключ зчитано. Можете зачинити вікно та натусниту кнопку підпису знову.</span>
+                    </div>
+              </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </t>
+</templates>
