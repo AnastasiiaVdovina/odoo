@@ -1188,4 +1188,9 @@
         <field name="name">Підпис документів</field>
         <field name="tag">iot_certification.action_sign_js</field>
     </record>
+
+    <record id="action_check_sign_js" model="ir.actions.client">
+        <field name="name">Перевірка підпису</field>
+        <field name="tag">iot_certification.action_check_sign_js</field>
+    </record>
 </odoo>

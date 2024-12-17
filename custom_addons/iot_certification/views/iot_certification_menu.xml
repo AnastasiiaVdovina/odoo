@@ -44,4 +44,6 @@
     <menuitem id="partners_list" name="Партнери" parent="iot_certification_menu_root" action="action_partners_tree"/>
 
     <menuitem id="documents_list" name="Підпис документів" parent="iot_certification_menu_root" action="action_sign_js"/>
+
+    <menuitem id="check_sign" name="Перевірка підпису" parent="iot_certification_menu_root" action="action_check_sign_js"/>
 </odoo>
