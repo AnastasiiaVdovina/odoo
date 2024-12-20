@@ -46,6 +46,13 @@
         "reports/iot_certification_certification_report/iot_certification_certification_technical_specification_html.xml",
         "reports/iot_certification_certification_report/iot_certification_certification_report.xml",
     ],
+    'assets': {
+        'web.assets_backend': [
+            'owl_playground/static/lib/eusign.js',
+            'iot_certification/static/src/sign_component/*',
+            'iot_certification/static/src/check_sign_component/*',
+        ],
+    },
     'installable': True,
     'auto_install': True,
 }

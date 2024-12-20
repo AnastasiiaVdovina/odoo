@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="iot_certification.OwlCheckSign" owl="1">
+        <iframe title="Область перевірки підпису"
+                t-att-src="check_sign_widget_url"
+                id="verify-widget" style="width: 100%; height: 900px; border-width: 0;"/>
+    </t>
+</templates>
